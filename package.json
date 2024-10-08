@@ -1,6 +1,6 @@
 {
   "name": "create-next-app-pwa",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The script for the npx create-next-app-pwa command. Making it easier for everyone to create a Next.js Progressive Web App.",
   "main": "index.js",
   "bin": {
@@ -13,5 +13,10 @@
   },
   "keywords": ["react", "next.js", "next", "pwa", "next-pwa", "create-next-pwa"],
   "author": "Louis Lemsic",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cifelse/create-next-app-pwa.git"
+  },
+  "homepage": "https://github.com/cifelse/create-next-app-pwa#readme"
 }
