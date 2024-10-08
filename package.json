@@ -1,15 +1,17 @@
 {
-  "name": "create-next-pwa",
+  "name": "create-next-app-pwa",
   "version": "1.0.0",
-  "description": "The script for the npx create-next-pwa-app command. Making it easier for everyone to create a Next.js Progressive Web App.",
+  "description": "The script for the npx create-next-app-pwa command. Making it easier for everyone to create a Next.js Progressive Web App.",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": ["next", "pwa", "next-pwa", "create-next-pwa"],
-  "author": "Louis Lemsic",
-  "license": "MISC",
   "bin": {
-    "create-next-pwa": "./index.js"
-  }
+    "create-next-app-pwa": "./index.js"
+  },
+  "dependencies": {
+    "@serwist/next": "latest",
+    "serwist": "latest",
+    "next-pwa": "latest"
+  },
+  "keywords": ["react", "next.js", "next", "pwa", "next-pwa", "create-next-pwa"],
+  "author": "Louis Lemsic",
+  "license": "MIT"
 }
