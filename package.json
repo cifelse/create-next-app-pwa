@@ -1,0 +1,15 @@
+{
+  "name": "create-next-pwa",
+  "version": "1.0.0",
+  "description": "The script for the npx create-next-pwa-app command. Making it easier for everyone to create a Next.js Progressive Web App.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["next", "pwa", "next-pwa", "create-next-pwa"],
+  "author": "Louis Lemsic",
+  "license": "MISC",
+  "bin": {
+    "create-next-pwa": "./index.js"
+  }
+}
