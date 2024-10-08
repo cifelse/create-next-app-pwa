@@ -1,5 +1,5 @@
 # Create Next.js Progressive Web App
-The script for the npx create-next-pwa-app command. Making it easier for everyone to create a Next.js Progressive Web App through a simple command.
+The script for the `npx create-next-app-pwa` command. Making it easier for everyone to create a Next.js Progressive Web App using a simple command. This is made possible by the service worker made by [@serwist/next](https://github.com/serwist/next).
 
 ## Installation
 It's easy. Just run the following command in your terminal:
