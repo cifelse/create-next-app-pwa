@@ -31,7 +31,13 @@ jobs:
           PKG_NAME=$(node -p "require('./package.json').name")
           PKG_VERSION=$(node -p "require('./package.json').version")
           REPO_OWNER=$(echo $GITHUB_REPOSITORY | cut -d / -f 1)
-          npm publish --registry=https://npm.pkg.github.com --scope=@$REPO_OWNER
+          REPO_NAME=$(echo $GITHUB_REPOSITORY | cut -d / -f 2)
+          
+          # Update package.json with the correct name format for GitHub Packages
+          npm pkg set name="@${REPO_OWNER}/${REPO_NAME}"
+          
+          # Publish the package
+          npm publish --registry=https://npm.pkg.github.com
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
