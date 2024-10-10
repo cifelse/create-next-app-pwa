@@ -1,4 +1,5 @@
 import readline from 'readline';
+import fs from 'fs';
 import path from 'path';
 
 export const metadataTS = `
