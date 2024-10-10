@@ -1,5 +1,5 @@
 # Create Next.js Progressive Web App
-The script for the `npx create-next-app-pwa` command. Making it easier for everyone to create a Next.js Progressive Web App using a simple command. This is made possible by the service worker made by [@serwist/next](https://github.com/serwist/next).
+The script for the `npx create-next-app-pwa` command. Making it easier for everyone to create a Next.js Progressive Web App using a simple command. This is made possible by the service worker made by [serwist](https://github.com/serwist/serwist) (see dependencies below).
 
 ## Installation
 It's easy. Just run the following command in your terminal:
@@ -26,6 +26,7 @@ After initializing the Next.js app, the following files will be then added:
 The script then edits the `layout.tsx` file and adds the manifest attribute to the `metadata` object.
 
 ## Dependencies
-The script also installs `@serwist/next` and `serwist` as dependencies. This is the service worker that enable your Next.js app to be a Progressive Web App.
+The script also installs [`@serwist/next`](https://www.npmjs.com/package/@serwist/next) and [`serwist`](https://www.npmjs.com/package/serwist) as dependencies. This is the service worker that enable your Next.js app to be a Progressive Web App.
+
 ## License
 This project is licensed under the MIT License. See the LICENSE file for more details.
