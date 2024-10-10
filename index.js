@@ -6,6 +6,14 @@ import { execSync } from 'child_process';
 import fs from 'fs';
 import path from 'path';
 
+// Check if the script is run as part of npm install or npm i
+const isNpmInstall = process.env.npm_lifecycle_event === 'install' || process.env.npm_config_argv?.includes('i');
+
+if (isNpmInstall) {
+    console.error("Please use 'npx create-next-app-pwa' instead of 'npm install create-next-app-pwa' or 'npm i create-next-app-pwa'.");
+    process.exit(1); // Exit the script with an error code
+}
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 console.clear();
