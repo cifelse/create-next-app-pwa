@@ -13,5 +13,19 @@ This will follow the standard `create-next-app` command so this means that you w
 ```
 After answering the questions, it will start the installation process. It's like installing a normal Next.js app.
 
+## Describing the Script
+
+> [!IMPORTANT]
+> The following information is only describing the script. <u>You don't need</u> to do them. This is just for transparency and accountabilty.
+
+After initializing the Next.js app, the following files will be then added:
+- `next.config.mjs` - The configuration file for the Next.js app to align with the Progressive Web App.
+- `public/manifest.json` - The manifest file as a requirement for a Progressive Web App.
+- `public/favicon.ico` - The favicon, likewise, a requirement for a Progressive Web App.
+
+The script then edits the `layout.tsx` file and adds the manifest attribute to the `metadata` object.
+
+## Dependencies
+The script also installs `@serwist/next` and `serwist` as dependencies. This is the service worker that enable your Next.js app to be a Progressive Web App.
 ## License
 This project is licensed under the MIT License. See the LICENSE file for more details.
