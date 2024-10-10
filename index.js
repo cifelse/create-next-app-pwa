@@ -12,9 +12,9 @@ execSync(`npx create-next-app@latest ${projectName}`, { stdio: 'inherit' });
 
 const projectPath = path.join(process.cwd(), projectName);
 
-// Copy `next.config.js` from templates to the new project
+// Copy `next.config.js` from src to the new project
 fs.copyFileSync(
-    path.join(__dirname, 'templates', 'next.config.mjs'),
+    path.join(__dirname, 'src', 'next.config.mjs'),
     path.join(projectPath, 'next.config.mjs')
 );
 
@@ -29,21 +29,21 @@ if (!fs.existsSync(publicDir)) {
     fs.mkdirSync(publicDir);
 }
 
-// Copy `manifest.json` from templates to the public directory
+// Copy `manifest.json` from src to the public directory
 fs.copyFileSync(
-    path.join(__dirname, 'templates', 'manifest.json'),
+    path.join(__dirname, 'src', 'manifest.json'),
     path.join(publicDir, 'manifest.json')
 );
 
-// Copy `icon.svg` from templates to the public directory
+// Copy `icon.svg` from src to the public directory
 fs.copyFileSync(
-    path.join(__dirname, 'templates', 'icon.svg'),
+    path.join(__dirname, 'src', 'icon.svg'),
     path.join(publicDir, 'icon.svg')
 );
 
-// Copy `sw.ts` from templates to the root of the new project
+// Copy `sw.ts` from src to the root of the new project
 fs.copyFileSync(
-    path.join(__dirname, 'templates', 'sw.ts'),
+    path.join(__dirname, 'src', 'sw.ts'),
     path.join(projectPath, 'sw.ts')
 );
 
