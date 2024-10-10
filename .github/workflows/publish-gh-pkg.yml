@@ -7,12 +7,24 @@ on:
 jobs:
   publish-gh-pkg:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: '20'
           registry-url: 'https://npm.pkg.github.com'
-      - run: npm publish
+      - run: |
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > .npmrc
+          echo "@$(echo $GITHUB_REPOSITORY | cut -d / -f 1):registry=https://npm.pkg.github.com" >> .npmrc
+      - run: npm ci
+      - run: |
+          PKG_NAME=$(node -p "require('./package.json').name")
+          PKG_VERSION=$(node -p "require('./package.json').version")
+          REPO_OWNER=$(echo $GITHUB_REPOSITORY | cut -d / -f 1)
+          npm publish --registry=https://npm.pkg.github.com --scope=@$REPO_OWNER
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: rm -f .npmrc
