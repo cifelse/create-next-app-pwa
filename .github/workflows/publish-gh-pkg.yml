@@ -1,6 +1,7 @@
-name: Publish to GitHub Packages on Release
+name: Publish to GitHub Packages
 
 on:
+  workflow_dispatch:
   release:
     types: [created]
 
@@ -11,20 +12,28 @@ jobs:
       contents: read
       packages: write
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
         with:
           node-version: '20'
           registry-url: 'https://npm.pkg.github.com'
-      - run: |
+
+      - name: Configure npm for GitHub Packages
+        run: |
           echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > .npmrc
           echo "@$(echo $GITHUB_REPOSITORY | cut -d / -f 1):registry=https://npm.pkg.github.com" >> .npmrc
-      - run: npm ci
-      - run: |
+
+      - name: Publish package
+        run: |
           PKG_NAME=$(node -p "require('./package.json').name")
           PKG_VERSION=$(node -p "require('./package.json').version")
           REPO_OWNER=$(echo $GITHUB_REPOSITORY | cut -d / -f 1)
           npm publish --registry=https://npm.pkg.github.com --scope=@$REPO_OWNER
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: rm -f .npmrc
+
+      - name: Clean up .npmrc
+        run: rm -f .npmrc
