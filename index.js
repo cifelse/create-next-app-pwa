@@ -64,6 +64,6 @@ fs.copyFileSync(
 );
 
 // Update the layout.tsx metadata
-updateLayoutMetadata();
+updateLayoutMetadata(projectPath);
 
 console.log(`\nPWA setup complete! Your Next.js PWA is ready to go.`);

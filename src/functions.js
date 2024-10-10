@@ -57,7 +57,7 @@ export async function getProjectName() {
 }
 
 // Function to update the layout.tsx file with new metadata
-export async function updateLayoutMetadata() {
+export async function updateLayoutMetadata(projectPath) {
     const possiblePaths = [
         // Typescript
         path.join(projectPath, 'src', 'app', 'layout.tsx'),
