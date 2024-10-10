@@ -7,6 +7,9 @@
   "bin": {
     "create-next-app-pwa": "./index.js"
   },
+  "scripts": {
+    "preinstall": "node -e \"if(process.env.npm_config_global){console.error('Please use npx to run this package instead of installing it.'); process.exit(1)}\""
+  },
   "dependencies": {
     "@serwist/next": "latest"
   },
@@ -27,5 +30,9 @@
     "type": "git",
     "url": "https://github.com/cifelse/create-next-app-pwa.git"
   },
-  "homepage": "https://github.com/cifelse/create-next-app-pwa#readme"
+  "homepage": "https://github.com/cifelse/create-next-app-pwa#readme",
+  "files": [
+    "index.js",
+    "src/**/*"
+  ]
 }
