@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { getProjectName, updateLayoutMetadata } from './src/functions.js';
+import { getProjectName, updateLayoutMetadata } from './src/functions.ts';
 import { fileURLToPath } from 'url';
 import { execSync } from 'child_process';
 import fs from 'fs';

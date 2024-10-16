@@ -2,7 +2,7 @@ import readline from 'readline';
 import fs from 'fs';
 import path from 'path';
 
-export const metadataTS = `
+export const metadataTS: string = `
 export const metadata: Metadata = {
     manifest: "/manifest.json",
     title: "Next.js PWA",
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 };
 `;
 
-export const metadataJS = `
+export const metadataJS: string = `
 const metadata = {
     manifest: "/manifest.json",
     title: "Next.js PWA",
@@ -19,28 +19,28 @@ const metadata = {
 `;
 
 // Function to check if the project name is valid
-export function isValidProjectName(name) {
+export function isValidProjectName(name: string): boolean {
     return /^[a-zA-Z0-9-_]+$/.test(name);
 }
 
 // Function to prompt for project name
-export function promptForProjectName() {
+export function promptForProjectName(): Promise<string> {
     const rl = readline.createInterface({
         input: process.stdin,
         output: process.stdout
     });
 
     return new Promise((resolve) => {
-        rl.question('Please enter a project name: ', (answer) => {
+        rl.question('Please enter a project name: ', (answer: string) => {
             rl.close();
             resolve(answer.trim());
         });
     });
 }
 
-export async function getProjectName() {
+export async function getProjectName(): Promise<string> {
     // Get the project name from the command line arguments and convert it to lowercase
-    let projectName = process.argv[2];
+    let projectName: string | undefined = process.argv[2];
 
     while (!projectName || !isValidProjectName(projectName)) {
         if (projectName) {
@@ -58,8 +58,8 @@ export async function getProjectName() {
 }
 
 // Function to update the layout.tsx file with new metadata
-export async function updateLayoutMetadata(projectPath) {
-    const possiblePaths = [
+export async function updateLayoutMetadata(projectPath: string): Promise<void> {
+    const possiblePaths: string[] = [
         // Typescript
         path.join(projectPath, 'src', 'app', 'layout.tsx'),
         path.join(projectPath, 'app', 'layout.tsx'),
@@ -73,7 +73,7 @@ export async function updateLayoutMetadata(projectPath) {
 
     for (const filePath of possiblePaths) {
         if (fs.existsSync(filePath)) {
-            let fileContent = fs.readFileSync(filePath, 'utf8');
+            let fileContent: string = fs.readFileSync(filePath, 'utf8');
 
             // Regex to find and replace the metadata export
             if (filePath.endsWith('.tsx')) {
