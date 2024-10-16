@@ -9,7 +9,7 @@
   },
   "scripts": {
     "preinstall": "node -e \"if(process.env.npm_config_global){console.error('Please use npx to run this package instead of installing it.'); process.exit(1)}\"",
-    "test": "vitest"
+    "test": "vitest --reporter verbose"
   },
   "dependencies": {
     "@serwist/next": "latest"
