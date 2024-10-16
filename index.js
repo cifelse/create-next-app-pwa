@@ -7,10 +7,10 @@ import fs from 'fs';
 import path from 'path';
 
 // Check if the script is run as part of npm install or npm i
-const isNpx = process.env._ && process.env._.indexOf('npx') !== -1;
+const isNpx = process.argv[1].includes('create-next-app-pwa');
 
 if (!isNpx) {
-    console.log("Please use 'npx my-package' to run this package.");
+    console.log("This package is meant to be used with npx. Please use 'npx create-next-app-pwa' to create a new project.");
     process.exit(1);
 }
 
